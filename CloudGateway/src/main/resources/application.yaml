@@ -1,0 +1,50 @@
+spring:
+  config:
+    import: configserver:http://localhost:9296
+  application:
+    name: API-GATEWAY  # Name of the gateway service
+  cloud:
+    gateway:
+      routes:
+        - id: ORDER-SERVICE  # Identifier for the route
+          predicates:
+            - Path=/order/**  # Matches paths starting with "/microservice"
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: ORDER-SERVICE
+                fallbackuri: forward:/orderServiceFallBack
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
+          uri: lb://ORDER-SERVICE  # Replace with the actual URI of your microservice
+        - id: PAYMENT-SERVICE  # Identifier for the route
+          predicates:
+            - Path=/payment/**  # Matches paths starting with "/microservice"
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: PAYMENT-SERVICE
+                fallbackuri: forward:/paymentServiceFallBack
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1
+                redis-rate-limiter.burstCapacity: 1
+          uri: lb://PAYMENT-SERVICE  #
+        - id: PRODUCT-SERVICE  # Identifier for the route
+          predicates:
+            - Path=/product/**  # Matches paths starting with "/microservice"
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: PRODUCT-SERVICE
+                fallbackuri: forward:/productServiceFallBack
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 1 #how many requests per sec
+                redis-rate-limiter.burstCapacity: 1
+          uri: lb://PRODUCT-SERVICE
+server:
+  port: 9090  # Port on which the gateway will listen
+
