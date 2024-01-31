@@ -47,4 +47,11 @@ spring:
           uri: lb://PRODUCT-SERVICE
 server:
   port: 9090  # Port on which the gateway will listen
+okta:
+  oauth2:
+    issuer: https://dev-36646590.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oaeor99lkJamENKO5d7
+    client-secret: v_jvEfHff3tzLCzm88whApBGKEF9hnGw9ie-_d8VR0JGsXTUwvYaqTT6G4NGMh9r
+    scopes: openid, profile, email, offline_access
 
