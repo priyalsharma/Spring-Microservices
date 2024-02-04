@@ -111,7 +111,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-        <dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-util</artifactId>
+			<version>9.4.45.v20220203</version>
+		</dependency>
+		<dependency>
             <groupId>com.psprojects</groupId>
             <artifactId>ProductService</artifactId>
             <version>0.0.1-SNAPSHOT</version>
