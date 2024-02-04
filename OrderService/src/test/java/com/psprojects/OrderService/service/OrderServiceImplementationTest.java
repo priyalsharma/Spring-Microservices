@@ -43,7 +43,6 @@ public class OrderServiceImplementationTest {
     private RestTemplate restTemplate;
     @InjectMocks //Inject all @Mock in this class
     OrderService orderService = new OrderServiceImplementation();
-
     @DisplayName("Get - Order - Success Scenario")
     @Test
     void test_When_Order_Success(){
@@ -146,7 +145,6 @@ public class OrderServiceImplementationTest {
         verify(paymentService,times(1))
                 .doPayment(any(PaymentRequest.class));
     }
-
     private OrderRequest getMockOrderRequest() {
         return OrderRequest.builder()
                 .paymentMode(PaymentMode.CASH)
