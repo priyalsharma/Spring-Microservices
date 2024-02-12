@@ -36,4 +36,8 @@ public class AuthenticationController {
                 .build();
         return new ResponseEntity<>(authenticationResponse, HttpStatus.OK);
     }
+    @GetMapping
+    public ResponseEntity<String> test(){
+        return new ResponseEntity<>("Hello, tested",HttpStatus.OK);
+    }
 }

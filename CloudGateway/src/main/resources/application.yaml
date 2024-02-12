@@ -1,6 +1,6 @@
 spring:
   config:
-    import: configserver:http://localhost:9296
+    import: configserver:http://${CONFIG_SERVER_URL:localhost}:9296
   application:
     name: API-GATEWAY  # Name of the gateway service
   cloud:
@@ -53,5 +53,4 @@ okta:
     audience: api://default
     client-id: 0oaeor99lkJamENKO5d7
     client-secret: v_jvEfHff3tzLCzm88whApBGKEF9hnGw9ie-_d8VR0JGsXTUwvYaqTT6G4NGMh9r
-    scopes: openid, profile, email, offline_access
-
+    scopes: internal, openid, profile, email, offline_access, address, phone, device_sso

@@ -84,21 +84,21 @@
 			<version>2.1.6</version>
 		</dependency>
 
-			<!-- Spring Security Core -->
+<!--			 Spring Security Core -->
 <!--			<dependency>-->
 <!--				<groupId>org.springframework.security</groupId>-->
 <!--				<artifactId>spring-security-core</artifactId>-->
 <!--				<version>5.5.1</version> &lt;!&ndash; Replace with your desired version &ndash;&gt;-->
 <!--			</dependency>-->
 
-			<!-- Spring Security Config -->
+<!--			 Spring Security Config -->
 <!--			<dependency>-->
 <!--				<groupId>org.springframework.security</groupId>-->
 <!--				<artifactId>spring-security-config</artifactId>-->
 <!--				<version>5.5.1</version> &lt;!&ndash; Replace with your desired version &ndash;&gt;-->
 <!--			</dependency>-->
 
-			<!-- Spring Core -->
+<!--			 Spring Core -->
 <!--			<dependency>-->
 <!--				<groupId>org.springframework</groupId>-->
 <!--				<artifactId>spring-core</artifactId>-->

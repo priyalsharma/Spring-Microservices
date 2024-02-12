@@ -22,14 +22,14 @@ public class TestServiceInstanceListSupplier implements ServiceInstanceListSuppl
                 "PAYMENT_SERVICE",
                 "PAYMENT_SERVICE",
                 "localhost",
-                8080,
+                8081,
                 false
         ));
         result.add(new DefaultServiceInstance(
                 "PRODUCT_SERVICE",
                 "PRODUCT_SERVICE",
                 "localhost",
-                8080,
+                8081,
                 false
         ));
         return Flux.just(result);
