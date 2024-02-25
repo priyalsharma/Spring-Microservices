@@ -1,0 +1,28 @@
+version: '24'
+# ... Services referencing my-network ...
+services:
+  serviceregistry:
+    image: priyalsharma/serviceregistry:0.0.1
+    container_name: serviceregistry
+    ports:
+      - "8761:8761"
+    networks:
+      - my-network
+  configserver:
+    image: priyalsharma/configserver:0.0.1
+    container_name: configserver
+    ports:
+      - "9296:9296"
+    depends_on:
+      - serviceregistry
+    environment:
+      - EUREKA_SERVER_ADDRESS=serviceregistry
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+
+

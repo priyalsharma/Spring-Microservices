@@ -1,0 +1,12 @@
+To create network:
+docker network create my-network
+
+To check containers running on my-network:
+docker inspect my-network
+
+To run serviceregistry on my-network:
+image-id: 4f825a12cc03
+docker run -d --name serviceregistry --network my-network -p 8761:8761 1ca2a614ad4f
+
+To run configserver on my-network with environment variable set to connect to serviceregistry:
+docker run -d -p 9296:9296 --network my-network -e EUREKA_SERVER_ADDRESS=http://serviceregistry:8761 --name configserver 7bd544917945
